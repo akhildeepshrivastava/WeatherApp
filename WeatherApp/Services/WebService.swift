@@ -10,7 +10,7 @@ import Combine
 
 class WebService {
     func fetchWeather(for city: String) -> AnyPublisher<Weather, Error> {
-        guard let url = URL(string: Constants.weather(city: city)) else {
+        guard let url = URL(string: Constants.weather(city: city, token: "YourAPIKey")) else {
             fatalError("Invalid Error")
         }
         return URLSession.shared.dataTaskPublisher(for: url)
